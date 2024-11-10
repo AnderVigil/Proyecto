@@ -1,0 +1,114 @@
+﻿<form id="frmPelicula" data-idcliente="0" data-accion="nuevo">
+    <div class="card text-bg-dark mb-3" style="width: 750px">
+        <div class="card-header">
+            <div class="d-flex">
+                Administrador de Peliculas
+                <div class="ms-auto">
+                    <button type="button" data-form="pelicula" class="btn-close btn-close-white"></button>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="row p-1">
+                <div class="col-3 col-md-2">NOMBRE:</div>
+                <div class="col-9 col-md-8">
+                    <input type="text" class="form-control" id="txtNombrePelicula" name="txtNombrePelicula" required />
+                </div>
+            </div>
+            <div class="row p-1">
+                <div class="col-3 col-md-2">AUTOR:</div>
+                <div class="col-9 col-md-4">
+                    <input type="text" class="form-control" id="txtAutorPelicula" name="txtAutorPelicula" required />
+                </div>
+            </div>
+            <div class="row p-1">
+                <div class="col-3 col-md-2">SINOPSIS:</div>
+                <div class="col-9 col-md-8">
+                    <input type="text" class="form-control" id="txtSinopsisPelicula" name="txtSinopsisPelicula" required />
+                </div>
+            </div>
+            <div class="row p-1">
+                <div class="col-3 col-md-2">DURACION:</div>
+                <div class="col-9 col-md-8">
+                    <input type="text" class="form-control" id="txtDuracionPelicula" name="txtDuracionPelicula" required />
+                </div>
+            </div>
+            <div class="row p-1">
+                <div class="col-3 col-md-2">CLASIFICACION:</div>
+                <div class="col-9 col-md-4">
+                    <input type="text" class="form-control" id="txtClasificacionPelicula" name="txtClasificacionPelicula" required />
+                </div>
+            </div>
+            <div class="row p-1">
+                <div class="col-12 text-center">
+                    <input type="submit" class="btn btn-primary" value="Guardar" />
+                    <input type="reset" class="btn btn-warning" value="Nuevo" />
+                    <input type="button" onclick="abrirVentana(`busqueda_pelicula`)" class="btn btn-success" value="Buscar" />
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</form>
+<script>
+    frmPelicula.addEventListener(`submit`, e => {
+        e.preventDefault();
+        guardarPeliculas();
+    });
+    frmPelicula.addEventListener(`reset`, e => {
+        e.preventDefault();
+        nuevoPeliculas();
+    });
+    async function guardarPeliculas() {
+        let datos = {
+            Nombre: txtNombrePelicula.value,
+            Autor: txtAutorPelicula.value,
+            Sinopsis: txtSinopsisPelicula.value,
+            Duracion: txtDuracionPelicula.value,
+            Clasificacion: txtClasificacionPelicula.value,
+        },
+            method = "POST",
+            url = `https://localhost:7070/api/Peliculas`;
+        if (frmPelicula.dataset.accion == "modificar") {
+            datos.idPelicula = frmPelicula.dataset.idpelicula;
+            method = "PUT";
+                url = `https://localhost:7070/api/Peliculas/${datos.idPelicula}`;
+        }
+        const respuesta = await fetch(url, {
+            method,
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(datos)
+        }), pelicula = await respuesta.json();
+        if (pelicula && pelicula?.idPelicula > 0) {
+            nuevoPeliculas();
+            listarPeliculas();
+        } else {
+            console.error(pelicula);
+        }
+
+    }
+    function modificarPeliculas(pelicula) {
+        console.log(pelicula);
+        frmPelicula.dataset.idpelicula = pelicula.idPelicula;
+        frmPelicula.dataset.accion = "modificar";
+        txtNombrePelicula.value = pelicula.nombre;
+        txtAutorPelicula.value = pelicula.autor;
+        txtSinopsisPelicula.value = pelicula.sinopsis;
+        txtDuracionPelicula.value = pelicula.duracion;
+        txtClasificacionPelicula.value = pelicula.clasificacion;
+    }
+    function nuevoPeliculas() {
+        frmPelicula.dataset.idpelicula = "0";
+        frmPelicula.dataset.accion = "nuevo";
+        txtNombrePelicula.value = "";
+        txtAutorPelicula.value ="";
+        txtSinopsisPelicula.value = "";
+        txtDuracionPelicula.value = "";
+        txtClasificacionPelicula.value ="";
+    }
+
+
+</script>

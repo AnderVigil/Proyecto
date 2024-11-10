@@ -1,0 +1,49 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\ander\\OneDrive\\Escritorio\\Proyecto\\proyecto\\proyecto\\wwwroot\\views\\Alquiler.html",
+      "PackagePath": "staticwebassets\\views\\Alquiler.html"
+    },
+    {
+      "Id": "C:\\Users\\ander\\OneDrive\\Escritorio\\Proyecto\\proyecto\\proyecto\\wwwroot\\views\\Cliente.html",
+      "PackagePath": "staticwebassets\\views\\Cliente.html"
+    },
+    {
+      "Id": "C:\\Users\\ander\\OneDrive\\Escritorio\\Proyecto\\proyecto\\proyecto\\wwwroot\\views\\Pelicula.html",
+      "PackagePath": "staticwebassets\\views\\Pelicula.html"
+    },
+    {
+      "Id": "C:\\Users\\ander\\OneDrive\\Escritorio\\Proyecto\\proyecto\\proyecto\\wwwroot\\views\\busqueda_cliente.html",
+      "PackagePath": "staticwebassets\\views\\busqueda_cliente.html"
+    },
+    {
+      "Id": "C:\\Users\\ander\\OneDrive\\Escritorio\\Proyecto\\proyecto\\proyecto\\wwwroot\\views\\busqueda_pelicula.html",
+      "PackagePath": "staticwebassets\\views\\busqueda_pelicula.html"
+    },
+    {
+      "Id": "C:\\Users\\ander\\OneDrive\\Escritorio\\Proyecto\\proyecto\\proyecto\\wwwroot\\views\\img\\Peli.png",
+      "PackagePath": "staticwebassets\\views\\img\\Peli.png"
+    },
+    {
+      "Id": "C:\\Users\\ander\\OneDrive\\Escritorio\\Proyecto\\proyecto\\proyecto\\wwwroot\\views\\index.html",
+      "PackagePath": "staticwebassets\\views\\index.html"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.proyecto.props",
+      "PackagePath": "build\\proyecto.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.proyecto.props",
+      "PackagePath": "buildMultiTargeting\\proyecto.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.proyecto.props",
+      "PackagePath": "buildTransitive\\proyecto.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.proyecto.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
